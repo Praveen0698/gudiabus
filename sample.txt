@@ -1,0 +1,110 @@
+    <Modal
+        className="bus-form-modal"
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div className="bus-form-container">
+          <form onSubmit={handleSubmit}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <h3>Add Firm</h3>
+              <RxCrossCircled
+                className="bus-form-cross"
+                onClick={handleClose}
+              />
+            </div>
+
+            <div className="data-input-fields">
+              <div className="bus-input-label">
+                <label className="input-label">Item Name</label>
+                <TextField
+                  className="bus-input"
+                  margin="dense"
+                  type="text"
+                  fullWidth
+                  name="itemName"
+                  id="itemName"
+                  value={formData.itemName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="bus-input-label">
+                <label className="input-label">Item Code</label>
+                <TextField
+                  className="bus-input"
+                  margin="dense"
+                  type="text"
+                  fullWidth
+                  name="itemCode"
+                  id="itemCode"
+                  value={formData.itemCode}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            </div>
+            <div className="data-input-fields">
+              <div className="bus-input-label">
+                <label className="input-label">Sales Price</label>
+                <TextField
+                  className="bus-input"
+                  margin="dense"
+                  type="text"
+                  fullWidth
+                  name="salesPrice"
+                  id="salesPrice"
+                  value={formData.salesPrice}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="bus-input-label">
+                <label className="input-label">Category</label>
+                <Select
+                  fullWidth
+                  name="category"
+                  value={formData.category}
+                  onChange={handleInputChange}
+                  required
+                >
+                  {categories.map((category) => (
+                    <MenuItem key={category.value} value={category.value}>
+                      {category.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </div>
+            </div>
+
+            <div className="data-buttons" style={{ marginTop: "20px" }}>
+              <Button
+                id="input-btn-submit"
+                className="submit"
+                type="submit"
+                variant="outlined"
+              >
+                Submit
+              </Button>
+              <Button
+                id="input-btn-cancel"
+                className="cancel"
+                onClick={handleClose}
+                variant="outlined"
+              >
+                Cancel
+              </Button>
+            </div>
+          </form>
+        </div>
+      </Modal>
